@@ -7,10 +7,12 @@ import javax.persistence.*;
 public class Joke {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
 
+    @Column(name="description")
+    private String description;
     public Joke() {
 
     }
@@ -42,6 +44,5 @@ public class Joke {
         this.description = description;
     }
 
-    @Column(name="description")
-    private String description;
+
 }
