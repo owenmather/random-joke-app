@@ -1,4 +1,4 @@
-package com.mather.invetions.jokeapp.joke;
+package com.mather.inventions.jokeapp.joke;
 
 import javax.persistence.*;
 

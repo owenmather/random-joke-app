@@ -1,4 +1,4 @@
-package com.mather.invetions.jokeapp.joke;
+package com.mather.inventions.jokeapp.joke;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

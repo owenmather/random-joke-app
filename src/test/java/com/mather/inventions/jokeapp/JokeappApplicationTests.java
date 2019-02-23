@@ -1,4 +1,4 @@
-package com.mather.invetions.jokeapp;
+package com.mather.inventions.jokeapp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

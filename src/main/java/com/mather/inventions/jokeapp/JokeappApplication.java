@@ -1,4 +1,4 @@
-package com.mather.invetions.jokeapp;
+package com.mather.inventions.jokeapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
