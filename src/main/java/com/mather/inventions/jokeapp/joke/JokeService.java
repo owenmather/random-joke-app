@@ -13,6 +13,7 @@ public class JokeService {
 
     public Joke getJokeById(int id){
         Optional<Joke> joke = jokeCrudRepository.findById(id);
+
         if(joke.isPresent()){
             return joke.get();
         }else{
