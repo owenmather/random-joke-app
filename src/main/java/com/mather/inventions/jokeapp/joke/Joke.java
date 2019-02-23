@@ -3,7 +3,7 @@ package com.mather.inventions.jokeapp.joke;
 import javax.persistence.*;
 
 @Entity
-@Table(name="")//name of database table
+@Table(name="joke")//name of database table
 public class Joke {
 
     @Id
@@ -14,15 +14,15 @@ public class Joke {
     public Joke() {
 
     }
-    public Joke(String jokeDescription) {
-        this.jokeDescription = jokeDescription;
+    public Joke(String description) {
+        this.description = description;
     }
 
     @Override
     public String toString() {
         return "Joke{" +
                 "id=" + id +
-                ", jokeDescription='" + jokeDescription + '\'' +
+                ", description='" + description + '\'' +
                 '}';
     }
 
@@ -34,14 +34,14 @@ public class Joke {
         this.id = id;
     }
 
-    public String getJokeDescription() {
-        return jokeDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setJokeDescription(String jokeDescription) {
-        this.jokeDescription = jokeDescription;
+    public void setDescriptiondescription(String description) {
+        this.description = description;
     }
 
-    @Column(name="")
-    private String jokeDescription;
+    @Column(name="description")
+    private String description;
 }
