@@ -7,9 +7,10 @@
     <meta charset="UTF-8">
     <title>Car Page</title>
 </head>
-<body>
+<body style="background-color:#22272C">
+
 <div class="container" >
-    <h3>Add a joke</h3>
+    <h3 style="color:white" >Add a joke</h3>
 
     <form action="#" th:action="@{/jokes/save}" th:object="${myjoke}" method="POST">
         <input type="hidden" th:field="*{id}">
