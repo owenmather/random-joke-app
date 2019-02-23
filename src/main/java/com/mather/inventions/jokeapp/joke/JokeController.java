@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
 import java.util.Random;
 
 @Controller
@@ -26,5 +29,25 @@ public class JokeController {
         String test = "test";
         model.addAttribute("test",test);
         return "randomJoke"; //this is the randomJoke.html page from templates auto pulled by spring
+    }
+
+    @PostMapping("/save")
+    public String add(@ModelAttribute("joke") Joke joke){
+        jokeService.save(joke);
+        return "redirect:/jokes/list";
+    }
+
+    @GetMapping("/addForm")
+    public String getForm(Model model){
+        Joke joke = new Joke();
+        model.addAttribute("joke",joke);
+        return "addJoke.html";
+    }
+
+    @GetMapping("/list")
+    public String listJokes(Model model){
+        List<Joke> jokes = jokeService.getJokes();
+        model.addAttribute("jokes",jokes);
+        return "jokeList.html";
     }
 }

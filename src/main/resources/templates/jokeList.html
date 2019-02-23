@@ -14,12 +14,21 @@
 </head>
 <body style="background-color:#22272C">
 <div class="container" >
-    <h3 style="color:white">Landing pagess</h3>
-    th:block th:each="user : ${users}">
-    <th:block th:each="fact : ${facts}">
-        <p style="color:white"
-       th:text="'Here is a random fact: '+${fact.description}"></p>
-    </th:block>
+    <h3 style="color:white">Joke List</h3>
+    <a class="btn btn-primary" th:href="@{/jokes/addForm}" >Add Car</a>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr><th>brand</th><th>color</th><th>action</th></tr>
+
+        </thead>
+        <tbody>
+        <tr th:each="joke : ${jokes}">
+            <td style="color:white" th:text="${joke.description}"></td>
+            <td><a class="btn btn-danger" th:href="@{/jokes/delete/(jokeId=${joke.id})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
