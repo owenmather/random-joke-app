@@ -24,13 +24,11 @@ public class JokeController {
     @GetMapping("/random")
     public String getRandomJoke(Model model){
         Random rand = new Random();
-        int randomNum = rand.nextInt((3 - 1) + 1) + 1;
+        int randomNum = rand.nextInt(((int)jokeCrudRepository.count() - 1) + 1) + 1;
 
         Joke joke = jokeService.getJokeById(randomNum);
         model.addAttribute("joke",joke);
 
-        String test = "test";
-        model.addAttribute("test",test);
         return "randomJoke"; //this is the randomJoke.html page from templates auto pulled by spring
     }
 
