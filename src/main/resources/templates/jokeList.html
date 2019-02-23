@@ -13,9 +13,9 @@
     <title>Car Page</title>
 </head>
 <body style="background-color:#22272C">
-<br class="container" >
-    <h3 style="color:white">Joke List</h3>
-    <a class="btn btn-primary" th:href="@{/jokes/addForm}" >Add New Joke</a></br>
+<div class="container" >
+    <h1 style="color:white">Joke List</h1>
+
 
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
@@ -25,10 +25,11 @@
         <tbody>
         <tr th:each="joke : ${jokes}">
             <td style="color:white" th:text="${joke.description}"></td>
-            <td><a class="btn btn-primary" th:href="@{/jokes/updateform/(jokeId=${joke.id})}">Update</a><a class="btn btn-danger" th:href="@{/jokes/delete/(jokeId=${joke.id})}">Delete</a></td>
+            <td><button class="btn btn-primary" th:href="@{/jokes/updateform/(jokeId=${joke.id})}">Update</button>  <button class="btn btn-danger" th:href="@{/jokes/delete/(jokeId=${joke.id})}">Delete</button></td>
         </tr>
         </tbody>
     </table>
+    <a class="btn btn-success" th:href="@{/jokes/addForm}" >Add New Joke</a></br>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
