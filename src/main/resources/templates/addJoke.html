@@ -1,4 +1,4 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -11,9 +11,9 @@
 <div class="container" >
     <h3>Add a joke</h3>
 
-    <form action="#" th:action="@{/jokes/save}" th:object="${joke}" method="POST">
+    <form action="#" th:action="@{/jokes/save}" th:object="${myjoke}" method="POST">
         <input type="hidden" th:field="*{id}">
-        <input type="text" th:field="*{description}">
+        <input type="text" th:field="*{description}" >
         <input type="submit">
     </form>
 </div>

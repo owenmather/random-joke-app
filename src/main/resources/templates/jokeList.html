@@ -25,7 +25,7 @@
         <tbody>
         <tr th:each="joke : ${jokes}">
             <td style="color:white" th:text="${joke.description}"></td>
-            <td><a class="btn btn-danger" th:href="@{/jokes/delete/(jokeId=${joke.id})}">Delete</a></td>
+            <td><a class="btn btn-primary" th:href="@{/jokes/updateform/(jokeId=${joke.id})}">Update</a><a class="btn btn-danger" th:href="@{/jokes/delete/(jokeId=${joke.id})}">Delete</a></td>
         </tr>
         </tbody>
     </table>

@@ -13,12 +13,6 @@ public class Joke {
 
     @Column(name="description")
     private String description;
-    public Joke() {
-
-    }
-    public Joke(String description) {
-        this.description = description;
-    }
 
     @Override
     public String toString() {
@@ -26,6 +20,18 @@ public class Joke {
                 "id=" + id +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    public Joke() {
+    }
+
+    public Joke(String description) {
+        this.description = description;
+    }
+
+    public Joke(int id, String description) {
+        this.id = id;
+        this.description = description;
     }
 
     public int getId() {
@@ -40,9 +46,7 @@ public class Joke {
         return description;
     }
 
-    public void setDescriptiondescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
-
-
 }

@@ -3,12 +3,12 @@ package com.mather.inventions.jokeapp.joke;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 @Controller
@@ -17,6 +17,9 @@ public class JokeController {
 
     @Autowired
     JokeService jokeService;
+
+    @Autowired
+    JokeCrudRepository jokeCrudRepository;
 
     @GetMapping("/random")
     public String getRandomJoke(Model model){
@@ -32,15 +35,18 @@ public class JokeController {
     }
 
     @PostMapping("/save")
-    public String add(@ModelAttribute("joke") Joke joke){
+    public String add(@Valid @ModelAttribute("myjoke") Joke joke , BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return "param";
+        }
         jokeService.save(joke);
         return "redirect:/jokes/list";
     }
 
     @GetMapping("/addForm")
     public String getForm(Model model){
-        Joke joke = new Joke();
-        model.addAttribute("joke",joke);
+        Joke myjoke = new Joke();
+        model.addAttribute("myjoke",myjoke);
         return "addJoke.html";
     }
 
@@ -49,5 +55,18 @@ public class JokeController {
         List<Joke> jokes = jokeService.getJokes();
         model.addAttribute("jokes",jokes);
         return "jokeList.html";
+    }
+
+    @GetMapping("/updateform")
+    public String getUpdate(@RequestParam("jokeId") int id, Model model){
+        Optional<Joke> car =jokeCrudRepository.findById(id);
+        model.addAttribute("myjoke",car.get());
+        return "addJoke.html";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("jokeId") int id){
+        jokeCrudRepository.deleteById(id);
+        return "redirect:/jokes/list";
     }
 }
