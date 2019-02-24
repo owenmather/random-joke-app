@@ -1,31 +1,70 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <meta charset="UTF-8">
-    <title>Car Page</title>
-    <script src="/scripts/index.js" ></script>
-    <link rel="stylesheet" href="/css/index.css" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" type="text/css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="../../bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../../styles.css"  type="text/css" rel="stylesheet">
+    <title>Dinner Chooser</title>
 </head>
-<body>
-    <div class="container" >
-        <h3 style="color:white">Landing pagessyt</h3>
+<body class="text-center">
 
-        <form id="form">
-            <fieldset class="form-group">
-                <legend>Personalia:</legend>
-                <label>joke description
-                    <input type="text" name="jokeDescription">
-                </label>
-            </fieldset>
-            <input onclick="submitForm()" type="button" value="submit">
-        </form>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        <div class="inner">
+            <h3 class="masthead-brand">Meal Planner</h3>
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link active" href="#">Home</a>
+                <a class="nav-link" href="/starter">Starter</a>
+                <a class="nav-link" href="/main">Main</a>
+                <a class="nav-link" href="/dessert">Dessert</a>
+            </nav>
+        </div>
+    </header>
 
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading">Choose your course</h1>
+        <p class="lead">Select between Starter Main or Dessert course options in the bar above. Then this app will randomly select you a dish to cook for today. Apart from fish. . . </br></br> <b>I HATE</b> <i class="fas fa-fish"></i></p>
+        <p class="lead">
+            <a href="#" class="btn btn-lg btn-secondary fistBtn" id="fshbtn" onclick="showDiv('toggle')">But I like fish</a>
+        </p>
+
+        <div id="toggle" style="display:none">
+            <iframe src="https://giphy.com/embed/xT0BKGkoBW46ip9OvK" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/justin-fish-slap-xT0BKGkoBW46ip9OvK">via GIPHY</a></p>
+        </div>
+    </main>
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>Practice Spring Boot App.</p>
+        </div>
+    </footer>
+</div>
+
+<script type="text/javascript">
+    var x = true;
+    function showDiv(toggle){
+        if(x){
+            document.getElementById(toggle).style.display = 'block';
+            document.getElementById("fshbtn").innerHTML = 'Fish are Evil';
+        }else{
+            document.getElementById(toggle).style.display = 'none';
+            document.getElementById("fshbtn").innerHTML = 'But I like fish';
+        }
+        x=!x;
+    }
+</script>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="popper/popper.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

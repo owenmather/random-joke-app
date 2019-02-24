@@ -13,8 +13,3 @@ CREATE TABLE `joke` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
-
-INSERT INTO `joke` VALUES
-	(1,'Knock knock'),
-  (2,'Knock knock 2')
-
