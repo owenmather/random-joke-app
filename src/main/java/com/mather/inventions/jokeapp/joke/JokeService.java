@@ -13,6 +13,9 @@ public class JokeService {
     @Autowired
     private JokeCrudRepository jokeCrudRepository;
 
+    @Autowired
+    private JokeDaoImpl jokeDao;
+
     public Joke getJokeById(int id){
         Optional<Joke> joke = jokeCrudRepository.findById(id);
 
@@ -29,6 +32,11 @@ public class JokeService {
 
     public List<Joke> getJokes(){
         List<Joke> jokes = jokeCrudRepository.findAll();
+        return jokes;
+    }
+
+    public List<Joke> getJokesWithString(String s){
+        List<Joke> jokes = jokeDao.selectJokesWithString(s);
         return jokes;
     }
 }

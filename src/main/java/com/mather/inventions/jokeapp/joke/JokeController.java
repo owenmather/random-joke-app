@@ -55,6 +55,13 @@ public class JokeController {
         return "jokeList.html";
     }
 
+    @GetMapping("/with/{id}")
+    public String listJokes(@PathVariable("id") String s,Model model){
+        List<Joke> jokes = jokeService.getJokesWithString(s);
+        model.addAttribute("jokes",jokes);
+        return "jokeList.html";
+    }
+
     @GetMapping("/updateform")
     public String getUpdate(@RequestParam("jokeId") int id, Model model){
         Optional<Joke> car =jokeCrudRepository.findById(id);
