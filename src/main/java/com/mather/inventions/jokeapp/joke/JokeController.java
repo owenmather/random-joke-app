@@ -18,13 +18,10 @@ public class JokeController {
     @Autowired
     JokeService jokeService;
 
-    @Autowired
-    JokeCrudRepository jokeCrudRepository;
-
     @GetMapping("/random")
     public String getRandomJoke(Model model){
         Random rand = new Random();
-        int randomNum = rand.nextInt(((int)jokeCrudRepository.count() - 1) + 1) + 1;
+        int randomNum = rand.nextInt(((int)jokeService.count() - 1) + 1) + 1;
 
         Joke joke = jokeService.getJokeById(randomNum);
         model.addAttribute("joke",joke);
@@ -64,14 +61,14 @@ public class JokeController {
 
     @GetMapping("/updateform")
     public String getUpdate(@RequestParam("jokeId") int id, Model model){
-        Optional<Joke> car =jokeCrudRepository.findById(id);
-        model.addAttribute("myjoke",car.get());
+        Joke joke =jokeService.getJokeById(id);
+        model.addAttribute("myjoke",joke);
         return "addJoke.html";
     }
 
     @GetMapping("/delete")
     public String delete(@RequestParam("jokeId") int id){
-        jokeCrudRepository.deleteById(id);
+        jokeService.deleteById(id);
         return "redirect:/jokes/list";
     }
 }

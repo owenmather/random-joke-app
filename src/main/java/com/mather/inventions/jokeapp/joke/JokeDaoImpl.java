@@ -20,7 +20,6 @@ public class JokeDaoImpl implements JokeDao{
         this.entityManager = entityManager;
     }
 
-
     @Override
     public List<Joke> selectJokesWithString(String x) {
         Session session = entityManager.unwrap(Session.class);

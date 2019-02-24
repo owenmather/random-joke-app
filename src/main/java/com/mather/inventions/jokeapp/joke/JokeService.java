@@ -30,6 +30,13 @@ public class JokeService {
        jokeCrudRepository.save(joke);
     }
 
+    public long count() {
+        return jokeCrudRepository.count();
+    }
+    public void deleteById(int id) {
+        jokeCrudRepository.deleteById(id);
+    }
+
     public List<Joke> getJokes(){
         List<Joke> jokes = jokeCrudRepository.findAll();
         return jokes;
